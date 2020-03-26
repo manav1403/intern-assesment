@@ -1,0 +1,110 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Display</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!--===============================================================================================-->
+    <link rel="icon" type="image/png" href="{% static 'images/icons/favicon.ico' %}"/>
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="{% static 'vendor/bootstrap/css/bootstrap.min.css' %}">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="{% static 'fonts/font-awesome-4.7.0/css/font-awesome.min.css' %}">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="{% static 'vendor/animate/animate.css' %}">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="{% static 'vendor/css-hamburgers/hamburgers.min.css' %}">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="{% static 'vendor/select2/select2.min.css' %}">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="{% static 'css/util.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/main.css' %}">
+    <!--===============================================================================================-->
+</head>
+
+<body>
+
+<div class="limiter">
+    <div class="container-login100" style="background: #000000;
+        background: -webkit-linear-gradient(-135deg, #333333, #000000);
+        background: -o-linear-gradient(-135deg, #333333, #000000);
+        background: -moz-linear-gradient(-135deg, #333333, #000000);
+        background: linear-gradient(-135deg, #333333, #000000);">
+        <div class="wrap-login100" style="background: white;">
+        <table class="table">
+  <thead class="thead-dark">
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Name</th>
+      <th scope="col">Email</th>
+      <th scope="col">Date Of Birth</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for i in data %}
+    <tr class = "{{i.id}} data">
+      <th scope="row">{{i.id}}</th>
+      <td>{{i.first_name}}</td>
+      <td>{{i.email}}</td>
+      <td>{{i.birthdate}}</td>
+    </tr>
+    {% endfor %}
+  </tbody>
+  </table>
+  <nav aria-label="Page navigation example">
+  <ul class="pagination justify-content-center" id = "items">
+    <li class="page-item disabled" id = "prev">
+      <a class="page-link" href="#">Previous</a>
+    </li>
+  </ul>
+</nav>
+        </div>
+    </div>
+</div>
+
+<script src="{% static 'vendor/jquery/jquery-3.2.1.min.js' %}"></script>
+<!--===============================================================================================-->
+<script src="{% static 'js/main.js' %}"></script>
+<script>
+var i;
+for (i=10;i<= {{number}};i=i+10){
+  $("#items").html($("#items").html()+'<li class="page-item" id ="'+(i/10)+'"><a class="page-link" href="#">'+(i/10)+'</a></li>');
+}
+$("#items").html($("#items").html()+'<li class="page-item" id = "next"><a class="page-link" href="#">Next</a> </li>');
+var curr_pos;
+function display(t){
+    var i;
+    if(t=="next"){
+        t=parseInt(curr_pos)+1;
+    }
+    if(t=="prev"){
+        t=curr_pos-1;
+    }
+    if(t=={{number}}/10){
+        $("#prev").removeClass("disabled");
+        $("#next").addClass("disabled");
+    }
+    else if(t==1){
+        $("#prev").addClass("disabled");
+        $("#next").removeClass("disabled");
+    }
+    else{
+        $("#prev").removeClass("disabled");
+        $("#next").removeClass("disabled");
+    }
+    for (i=1;i<= {{number}};i++){
+         $("."+i).hide();}
+    for (i=((t-1)*10)+1;i<=(t)*10;i++){$("."+i).show();}
+    $("#id").attr("tabindex",-1);
+    curr_pos=t
+}
+display(1);
+$('.page-item').on('click', function(){
+    display(this.id)});
+</script>
+</body>
+
+</html>

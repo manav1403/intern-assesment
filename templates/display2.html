@@ -1,0 +1,54 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Display</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!--===============================================================================================-->
+    <link rel="icon" type="image/png" href="{% static 'images/icons/favicon.ico' %}"/>
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="{% static 'vendor/bootstrap/css/bootstrap.min.css' %}">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="{% static 'fonts/font-awesome-4.7.0/css/font-awesome.min.css' %}">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="{% static 'vendor/animate/animate.css' %}">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="{% static 'vendor/css-hamburgers/hamburgers.min.css' %}">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="{% static 'vendor/select2/select2.min.css' %}">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="{% static 'css/util.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/main.css' %}">
+    <!--===============================================================================================-->
+</head>
+
+<body>
+
+<div class="limiter">
+    <div class="container-login100" style="background: #000000;
+        background: -webkit-linear-gradient(-135deg, #333333, #000000);
+        background: -o-linear-gradient(-135deg, #333333, #000000);
+        background: -moz-linear-gradient(-135deg, #333333, #000000);
+        background: linear-gradient(-135deg, #333333, #000000);">
+        <div class="wrap-login100" style="background: white;">
+        <h1> {{post.title}}</h1>
+        <hr width="80%" >
+        <br><h4> POSTED BY ::: {{author.first_name}}&nbsp{{author.last_name}}
+        <br><br>DESCRIPTION ::: {{post.description}}
+        <br><br>CONTENT ::: {{post.content}}
+        <br><br>POSTED ON ::: {{post.date}}
+        
+        </h4>
+
+        </div>
+    </div>
+</div>
+<!--===============================================================================================-->
+<script src="{% static 'js/main.js' %}"></script>
+
+</body>
+
+</html>
