@@ -644,27 +644,6 @@ header .overlay1 {
 	-ms-animation-delay: 14s;
 	animation-delay: 14s;
 }
-.sp-globe {
-	position: absolute;
-	width: 282px;
-	height: 273px;
-	left: 50%;
-	top: 50%;
-	margin: -137px 0 0 -141px;
-	background: transparent url(../images/globe.png) no-repeat top left;
-	-webkit-animation: fadeInBack 3.6s linear 14s backwards;
-	-moz-animation: fadeInBack 3.6s linear 14s backwards;
-	-ms-animation: fadeInBack 3.6s linear 14s backwards;
-	animation: fadeInBack 3.6s linear 14s backwards;
-	-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=30)";
-	filter: alpha(opacity=30);
-	opacity: 0.3;
-	-webkit-transform: scale(5);
-	-moz-transform: scale(5);
-	-o-transform: scale(5);
-	-ms-transform: scale(5);
-	transform: scale(5);
-}
 .sp-circle-link {
 	position: absolute;
 	left: 50%;
